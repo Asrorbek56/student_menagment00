@@ -1,3 +1,17 @@
+<?php 
+session_start();
+require "../config/db.php";
+if(!isset($_SESSION['user_id'])){
+    header("location: auth/login.php");
+    exit();
+}
+// sql yozdim
+
+$sql = "SELECT * FROM students ORDER BY id DESC";
+$data = $conn->prepare($sql);
+$data->execute();
+$students = $data->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -104,6 +118,22 @@
         </tr>
     </thead>
     <tbody>
+        <?php
+        foreach($students as $item):?>
+            <tr>
+            <td><?= $item['full_name'] ?></td>
+            <td><?= $item['age'] ?></td>
+            <td><?= $item['class_name'] ?></td>
+            <td><?= $item['phone_number'] ?></td>
+            <td><?= $item['adrees'] ?></td>
+            <td><?= date("d.M.Y",strtotime($item['created_at'])) ?></td>
+            <td class="actions">
+                <button class="view">Ko‘rish</button>
+                <button class="edit">O‘zgartirish</button>
+                <button class="delete">O‘chirish</button>
+            </td>
+        </tr>
+        <?php endforeach;?>
         <tr>
             <td>Ali Valiyev</td>
             <td>18</td>
