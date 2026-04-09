@@ -128,25 +128,12 @@ $students = $data->fetchAll();
             <td><?= $item['adrees'] ?></td>
             <td><?= date("d.M.Y",strtotime($item['created_at'])) ?></td>
             <td class="actions">
-                <button class="view">Ko‘rish</button>
-                <button class="edit">O‘zgartirish</button>
-                <button class="delete">O‘chirish</button>
+                <a href="#" class="view">Ko‘rish</a>
+                <a href="edit.php?id=<?= $item['id'] ?>" class="edit">O‘zgartirish</a>
+                <a href="#" class="delete">O‘chirish</a>
             </td>
         </tr>
         <?php endforeach;?>
-        <tr>
-            <td>Ali Valiyev</td>
-            <td>18</td>
-            <td>10-A</td>
-            <td>+998901234567</td>
-            <td>Toshkent</td>
-            <td>2026-04-02</td>
-            <td class="actions">
-                <button class="view">Ko‘rish</button>
-                <button class="edit">O‘zgartirish</button>
-                <button class="delete">O‘chirish</button>
-            </td>
-        </tr>
     </tbody>
 </table>
 
