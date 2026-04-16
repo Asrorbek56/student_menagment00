@@ -131,7 +131,7 @@ $cnt=1
             <td><?= $item['adrees'] ?></td>
             <td><?= date("d.M.Y",strtotime($item['created_at'])) ?></td>
             <td class="actions">
-                <a href="#" class="view">Ko‘rish</a>
+                <a href="show.php?id=<?= $item['id'] ?>" class="view">Ko‘rish</a>
                 <a href="edit.php?id=<?= $item['id'] ?>" class="edit">O‘zgartirish</a>
                 <a href="delete.php?id=<?=$item['id']?>" class="delete" onclick="return confirm('Rostan ham o\`chirmoqchimisiz!')">O‘chirish</a>
             </td>
